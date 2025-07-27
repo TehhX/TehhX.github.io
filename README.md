@@ -1,2 +1,2 @@
-# TehhX.github.io
-Webbedsite.
+# tehx.xyz
+This is a website.
