@@ -1,31 +1,83 @@
 <!DOCTYPE html>
 <html>
     <title>TehX: Links</title>
+
     <head>
-        <link rel="stylesheet" href="links.css">
-        <h1>Links</h1>
+        <h1 style="
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: red;
+            font-size: 60px;
+        ">
+            Links
+        </h1>
     </head>
+
     <body>
-        <a href="https://www.github.com/TehhX" class="Link Element">
-            <img src="linksRes/git.svg" alt="GitHub logo." class="Link Image">
-            <p class="Link Text">GitHub</p>
-        </a>
+        <style>
+            html
+            {
+                background-color: black;
+            }
 
-        <a href="https://steamcommunity.com/id/tehhx" class="Link Element">
-            <img src="linksRes/steam.svg" alt="Steam logo." class="Link Image">
-            <p class="Link Text">Steam</p>
-        </a>
+            .all-links
+            {
+                display: grid;
+                justify-content: center;
+            }
 
-        <a href="https://bandcamp.com/tehhx" class="Link Element">
-            <img src="linksRes/bandcamp.svg" alt="Bandcamp logo." class="Link Image">
-            <p class="Link Text">Bandcamp</p>
-        </a>
+            a[class="link-clickable"]
+            {
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-        <a href="https://myanimelist.net/profile/TehX" class="Link Element">
-            <img src="linksRes/myanimelist.svg" alt="MyAnimeList logo." class="Link Image">
-            <p class="Link Text">MyAnimeList</p>
-        </a>
+            img
+            {
+                width: 50px;
+                float: left;
+            }
 
-        <a href="index.html" class="Back"> Back to Home</a>
+            .link-text
+            {
+                font-size: 30px;
+                padding-left: 15px;
+                color: red;
+            }
+        </style>
+
+        <div class="all-links">
+            <a href="https://www.github.com/TehhX" class="link-clickable">
+                <img src="/linksRes/git.svg" alt="GitHub logo.">
+                <h1 class="link-text"> GitHub </h1>
+            </a>
+
+            <a href="https://steamcommunity.com/id/tehhx" class="link-clickable">
+                <img src="/linksRes/steam.svg" alt="Steam logo.">
+                <h1 class="link-text"> Steam </h1>
+            </a>
+
+            <a href="https://bandcamp.com/tehhx" class="link-clickable">
+                <img src="/linksRes/bandcamp.svg" alt="Bandcamp logo.">
+                <h1 class="link-text"> Bandcamp </h1>
+            </a>
+
+            <a href="https://myanimelist.net/profile/TehX" class="link-clickable">
+                <img src="/linksRes/myanimelist.svg" alt="MyAnimeList logo.">
+                <h1 class="link-text"> MyAnimeList </h1>
+            </a>
+        </div>
+
+        <div style="text-align: center; padding-top: 50px;">
+            <a href="index.html" style="
+                color: rgb(84, 236, 191);
+                font-size: 40px;
+                text-underline-offset: 10px;
+            ">
+                Back to Home
+            </a>
+        </div>
     </body>
 </html>

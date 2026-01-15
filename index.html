@@ -1,21 +1,69 @@
 <!DOCTYPE html>
 <html>
     <title> TehX: Home </title>
+
+    <style>
+        html
+        {
+            background-color: black;
+        }
+
+        body
+        {
+            color: orange;
+            margin: auto;
+            text-align: center;
+        }
+
+        p
+        {
+            font-size: 40px;
+            font-family: monospace;
+        }
+
+        p[class="Content"]
+        {
+            color: white;
+            font-size: 25px;
+        }
+
+        h1
+        {
+            color: aqua;
+            align-self: center;
+            text-align: center;
+            font-size: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: italic;
+        }
+
+        a[class="Link"]
+        {
+            color: rgb(107, 134, 255);
+            text-underline-offset: 40%;
+            font-style: normal;
+            font-size: 150%;
+            max-width: fit-content;
+        }
+    </style>
+
     <head>
         <link rel="stylesheet" href="index.css">
         <h1>TehX's Page</h1>
     </head>
+
     <body>
         <p>
             This is <i>my</i> page :)
         </p>
 
         <p class="Content">
-            This is a <i>very</i> fancy website. It's got CSS and everything.
+            This is a very fancy website. It's got CSS and everything.
         </p>
-        <p class="Content" class2="Content2"><b>
-            The website designer has logged on.
-        </b></p>
-        <a href="links.html">my links :)</a>
+
+        <br><br><br><br>
+
+        <a class="Link" href="mailto:tehx.xyz.unfrozen840@passinbox.com">email me: tehx.xyz.unfrozen840@passinbox.com</p>
+        <a class="Link" href="links.html" style="color: aqua;">my links :)</a>
     </body>
 </html>
