@@ -14,30 +14,21 @@
         body
         {
             color: orange;
-            margin: auto;
             text-align: center;
         }
 
-        p
+        .mid-body
         {
-            font-size: 40px;
             font-family: monospace;
         }
 
-        p[class="Content"]
-        {
-            color: white;
-            font-size: 25px;
-        }
-
-        h1
+        .title-text
         {
             color: aqua;
             align-self: center;
             text-align: center;
             font-size: 100px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-style: italic;
+            font-family: monospace, 'Courier New', Arial, Helvetica, sans-serif;
         }
 
         a[class="Link"]
@@ -52,21 +43,27 @@
 
     <head>
         <link rel="stylesheet" href="index.css">
-        <h1>TehX's Page</h1>
+        <h1 class="title-text">TehX's Page</h1>
     </head>
 
     <body>
-        <p>
-            This is <i>my</i> page :)
-        </p>
+        <div class="mid-body">
+            <p style="font-size: 60px; padding-top: 30px;">
+                <b> Welcome! </b>
+            </p>
+            <p style="font-size: 35px; font-style: italic; padding-top: 20px; padding-bottom: 100px;">
+                Go exploring below.
+            </p>
+        </div>
 
-        <p class="Content">
-            This is a very fancy website. It's got CSS and everything.
-        </p>
-
-        <br><br><br><br>
-
-        <a class="Link" href="mailto:tehx.xyz.unfrozen840@passinbox.com">email me: tehx.xyz.unfrozen840@passinbox.com</p>
-        <a class="Link" href="links.html" style="color: aqua;">my links :)</a>
+        <div style="font-size: 20px;">
+            <a class="Link" href="mailto:tehx@tehx.xyz">
+                Email Me: tehx@tehx.xyz
+            </a>
+            <br><br>
+            <a class="Link" href="links.html" style="color: aqua; padding-bottom: 30px;">
+                Links
+            </a>
+        </div>
     </body>
 </html>

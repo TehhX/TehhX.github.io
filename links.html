@@ -5,77 +5,80 @@
     <!-- Disable Dark Reader, website is already dark. -->
     <meta name="darkreader-lock">
 
-    <head>
-        <h1 style="
+    <style>
+        html
+        {
+            background-color: black;
+        }
+
+        h1
+        {
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
             color: red;
-            font-size: 60px;
-        ">
+            font-size: 80px;
+        }
+
+        .all-links
+        {
+            display: grid;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        a[class="link-clickable"]
+        {
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img
+        {
+            width: 80px;
+            float: left;
+            padding-right: 25px;
+        }
+
+        .link-text
+        {
+            font-size: 50px;
+        }
+    </style>
+
+    <head>
+        <h1>
             Links
         </h1>
     </head>
 
     <body>
-        <style>
-            html
-            {
-                background-color: black;
-            }
-
-            .all-links
-            {
-                display: grid;
-                justify-content: center;
-            }
-
-            a[class="link-clickable"]
-            {
-                padding: 5px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            img
-            {
-                width: 50px;
-                float: left;
-            }
-
-            .link-text
-            {
-                font-size: 30px;
-                padding-left: 15px;
-                color: red;
-            }
-        </style>
-
         <div class="all-links">
             <a href="https://www.github.com/TehhX" class="link-clickable">
                 <img src="/linksRes/git.svg" alt="GitHub logo.">
-                <h1 class="link-text"> GitHub </h1>
+                <h1 class="link-text" style="color: rgb(54, 212, 146);"> GitHub </h1>
             </a>
 
             <a href="https://steamcommunity.com/id/tehhx" class="link-clickable">
                 <img src="/linksRes/steam.svg" alt="Steam logo.">
-                <h1 class="link-text"> Steam </h1>
+                <h1 class="link-text" style="color: rgb(26, 255, 186);"> Steam </h1>
             </a>
 
             <a href="https://bandcamp.com/tehhx" class="link-clickable">
                 <img src="/linksRes/bandcamp.svg" alt="Bandcamp logo.">
-                <h1 class="link-text"> Bandcamp </h1>
+                <h1 class="link-text" style="color: rgb(221, 42, 96);"> Bandcamp </h1>
             </a>
 
             <a href="https://myanimelist.net/profile/TehX" class="link-clickable">
                 <img src="/linksRes/myanimelist.svg" alt="MyAnimeList logo.">
-                <h1 class="link-text"> MyAnimeList </h1>
+                <h1 class="link-text" style="color: rgb(25, 87, 221);"> MyAnimeList </h1>
             </a>
         </div>
 
         <div style="text-align: center; padding-top: 50px;">
             <a href="index.html" style="
-                color: rgb(84, 236, 191);
+                color: rgb(233, 230, 58);
                 font-size: 40px;
                 text-underline-offset: 10px;
             ">
