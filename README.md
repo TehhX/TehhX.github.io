@@ -1,2 +1,2 @@
-# tehx.xyz
+# tehx.ca
 This is a website.
