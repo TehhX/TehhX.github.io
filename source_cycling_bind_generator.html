@@ -8,18 +8,27 @@
     <script>
         current_action_index = 2
 
-        function add_new_input()
+        function action_input_add()
         {
             const new_input_element = document.createElement("input")
             new_input_element.setAttribute("id", "action_" + current_action_index)
             new_input_element.setAttribute("autocomplete", "off " + current_action_index)
+            new_input_element.setAttribute("class", "standard_font")
+            new_input_element.setAttribute("style", "text-align: center;")
             new_input_element.setAttribute("placeholder", "Action " + (current_action_index + 1))
             ++current_action_index
 
             const action_input_fields = document.getElementById("action_input_fields")
 
             action_input_fields.appendChild(new_input_element)
-            action_input_fields.appendChild(document.createElement("br"))
+        }
+
+        function action_input_remove()
+        {
+            if (current_action_index > 2)
+            {
+                document.getElementById("action_" + --current_action_index).remove()
+            }
         }
 
         function calculate_and_copy_command()
@@ -47,6 +56,12 @@
 
             // Write command to console log as well
             console.log(command)
+
+            const cncc_button = document.getElementById("cncc_button")
+            cncc_button.innerHTML = "Copied!"
+            setTimeout(() => {
+                cncc_button.innerHTML = "Copy Command"
+            }, 1350);
         }
     </script>
 
@@ -56,25 +71,43 @@
             background-color: black;
             color: white;
         }
+
+        .center_align
+        {
+            display: grid;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .standard_font
+        {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 25px;
+        }
     </style>
 
-    <head>
-        <h1>Source Game Cycling Bind Generator</h1>
-    </head>
+        <head>
+            <h1 class="standard_font" style="text-align: center; font-size: 55px;">Source Game Cycling Bind Generator</h1>
+        </head>
 
-    <body role="main">
-        <button onclick="calculate_and_copy_command()">Calculate and Copy Command</button><br>
-        <button onclick="add_new_input()">Add Field</button><br>
-
-        <input autocomplete="off" id="action_key" placeholder="Action Key"><br><br>
-
-        <div id="action_input_fields">
-            <input autocomplete="off" id="action_0" placeholder="Action 1"><br>
-            <input autocomplete="off" id="action_1" placeholder="Action 2"><br>
+    <body role="main" style="display: grid; justify-content: center;">
+        <div class="center_align">
+            <button class="standard_font" id="cncc_button" style="margin-bottom: 20px; background-color: rgb(156, 147, 252);" onclick="calculate_and_copy_command()">Copy Command</button>
         </div>
 
-        <a href="index.html">
-            Back to Home
-        </a>
+        <div class="center_align">
+            <button class="standard_font" onclick="action_input_add()" style="background-color: rgb(94, 207, 94);">Add Field</button>
+            <button class="standard_font" style="margin-bottom: 20px; background-color: rgb(227, 91, 91);" onclick="action_input_remove()">Remove Field</button>
+
+            <input class="standard_font" style="margin-bottom: 20px; text-align: center;" autocomplete="off" id="action_key" placeholder="Action Key">
+
+            <div style="margin-bottom: 40px;" class="center_align standard_font" id="action_input_fields">
+                <input class="standard_font" style="text-align: center;" autocomplete="off" id="action_0" placeholder="Action 1">
+                <input class="standard_font" style="text-align: center;" autocomplete="off" id="action_1" placeholder="Action 2">
+            </div>
+
+            <a class="standard_font" style="font-size: 40px;" href="index.html">Back to Home</a>
+        </div>
     </body>
 </html>
