@@ -22,7 +22,7 @@
             action_input_fields.appendChild(document.createElement("br"))
         }
 
-        function calculate_command()
+        function calculate_and_copy_command()
         {
             const action_key = document.getElementById("action_key").value
             const action_key_capitalized = action_key.toUpperCase()
@@ -43,6 +43,9 @@
 
             command += `alias CYCLING_${action_key_capitalized}_${current_action_index - 1} "${actions[current_action_index - 1]} ; bind ${action_key} CYCLING_${action_key_capitalized}_0" ; bind x CYCLING_${action_key_capitalized}_0`
 
+            navigator.clipboard.writeText(command)
+
+            // Write command to console log as well
             console.log(command)
         }
     </script>
@@ -60,7 +63,7 @@
     </head>
 
     <body role="main">
-        <button onclick="calculate_command()">Calculate Command</button><br>
+        <button onclick="calculate_and_copy_command()">Calculate and Copy Command</button><br>
         <button onclick="add_new_input()">Add Field</button><br>
 
         <input autocomplete="off" id="action_key" placeholder="Action Key"><br><br>
