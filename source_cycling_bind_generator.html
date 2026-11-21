@@ -9,7 +9,7 @@
     <script>
         current_action_index = 2
 
-        function action_input_add()
+        function action_input_add(preloaded_value)
         {
             const new_input_element = document.createElement("input")
             new_input_element.setAttribute("id", "action_" + current_action_index)
@@ -18,6 +18,11 @@
             new_input_element.setAttribute("style", "text-align: center;")
             new_input_element.setAttribute("placeholder", "Action " + (current_action_index + 1))
             ++current_action_index
+
+            if (preloaded_value != null)
+            {
+                new_input_element.value = preloaded_value
+            }
 
             const action_input_fields = document.getElementById("action_input_fields")
 
@@ -63,6 +68,41 @@
             setTimeout(() => {
                 cncc_button.innerHTML = "Copy Command"
             }, 1350);
+        }
+
+        // Use URL parameters eg. "...?action_key=kp_1&action=say Need backup!&action=say Need support!" to set the action key and any amount of actions
+        function load_url_parameters()
+        {
+            let url_parameters = new URLSearchParams(document.location.search)
+
+            const action_key = url_parameters.get("action_key")
+            if (action_key != null)
+            {
+                document.getElementById("action_key").value = action_key
+            }
+
+            const actions = url_parameters.getAll("action")
+            if (actions.length > 0)
+            {
+                for (let i = 0; i < actions.length; ++i)
+                {
+                    let current_action_input = document.getElementById("action_" + i)
+
+                    if (current_action_input == null)
+                    {
+                        action_input_add(actions[i])
+                    }
+                    else
+                    {
+                        current_action_input.value = actions[i]
+                    }
+                }
+            }
+        }
+
+        window.onload = () =>
+        {
+            load_url_parameters()
         }
     </script>
 
