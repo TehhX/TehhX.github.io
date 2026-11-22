@@ -7,6 +7,8 @@
     <meta name="darkreader-lock">
 
     <script>
+        const button_copy_timeout = 1350
+
         current_action_index = 2
 
         function action_input_add(preloaded_value)
@@ -35,6 +37,40 @@
             {
                 document.getElementById("action_" + --current_action_index).remove()
             }
+        }
+
+        function calculate_and_copy_url()
+        {
+            let url_arguments = []
+
+            const action_key = document.getElementById("action_key").value
+            if (action_key != "")
+            {
+                url_arguments += `action_key=${encodeURIComponent(action_key).replaceAll("!", "%21")}`
+            }
+
+            for (let i = 0; i < current_action_index; ++i)
+            {
+                let action = document.getElementById(`action_${i}`).value
+
+                if (action.length > 0)
+                {
+                    url_arguments += `&action=${encodeURIComponent(action).replaceAll("!", "%21")}`
+                }
+            }
+
+            let requested_url = window.location.origin + window.location.pathname + (url_arguments == "" ? "" : "?" + url_arguments)
+
+            navigator.clipboard.writeText(requested_url)
+
+            // Write URL to console log as well
+            console.log(requested_url)
+
+            const cncu_button = document.getElementById("cncu_button")
+            cncu_button.innerHTML = "Copied!"
+            setTimeout(() => {
+                cncu_button.innerHTML = "Copy URL"
+            }, button_copy_timeout);
         }
 
         function calculate_and_copy_command()
@@ -67,7 +103,7 @@
             cncc_button.innerHTML = "Copied!"
             setTimeout(() => {
                 cncc_button.innerHTML = "Copy Command"
-            }, 1350);
+            }, button_copy_timeout);
         }
 
         // Use URL parameters eg. "...?action_key=kp_1&action=say Need backup!&action=say Need support!" to set the action key and any amount of actions
@@ -129,19 +165,23 @@
     </style>
 
         <head>
-            <h1 class="standard_font" style="text-align: center; font-size: 55px;">Source Game Cycling Bind Generator</h1>
+            <h1 class="standard_font" style="text-align: center; font-size: 55px; margin-bottom: 0px;">Source Game Cycling Bind Generator</h1>
+            <h2 class="standard_font" style="text-align: center; font-style: italic; font-size: 25px; color: rgba(255, 255, 255, 0.788); margin-bottom: 50px;">Enter actions, copy command, paste into your autoexec.</h2>
         </head>
 
     <body role="main" style="display: grid; justify-content: center;">
-        <div class="center_align">
-            <button class="standard_font" id="cncc_button" style="margin-bottom: 20px; background-color: rgb(156, 147, 252);" onclick="calculate_and_copy_command()">Copy Command</button>
+        <div class="center_align" style="margin-bottom: 5px;">
+            <button class="standard_font" id="cncu_button" title="Copy a URL which will load the same values currently entered." style="background-color: rgb(47, 173, 168);" onclick="calculate_and_copy_url()">Copy URL</button>
+        </div>
+        <div class="center_align" style="margin-bottom: 20px;">
+            <button class="standard_font" id="cncc_button" title="Copy the command to paste into the game." style="background-color: rgb(156, 147, 252);" onclick="calculate_and_copy_command()">Copy Command</button>
         </div>
 
         <div class="center_align">
-            <button class="standard_font" onclick="action_input_add()" style="background-color: rgb(94, 207, 94);">Add Field</button>
-            <button class="standard_font" style="margin-bottom: 20px; background-color: rgb(227, 91, 91);" onclick="action_input_remove()">Remove Field</button>
+            <button class="standard_font" title="Add a new action text-field." onclick="action_input_add()" style="background-color: rgb(94, 207, 94);">Add Field</button>
+            <button class="standard_font" title="Remove the last action text-field." style="margin-bottom: 20px; background-color: rgb(227, 91, 91);" onclick="action_input_remove()">Remove Field</button>
 
-            <input class="standard_font" style="margin-bottom: 20px; text-align: center;" autocomplete="off" id="action_key" placeholder="Action Key">
+            <input class="standard_font" title="The key this cycle should be bound to." style="margin-bottom: 20px; text-align: center;" autocomplete="off" id="action_key" placeholder="Action Key">
 
             <div style="margin-bottom: 40px;" class="center_align standard_font" id="action_input_fields">
                 <input class="standard_font" style="text-align: center;" autocomplete="off" id="action_0" placeholder="Action 1">
